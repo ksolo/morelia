@@ -6,8 +6,6 @@ from typing import Any, Dict, Optional, List
 # Ensure all necessary ast node types are imported
 import ast # Using 'import ast' is cleaner
 
-print("\n[DEBUG_CANARY] >>> ast_visitor.py module is being imported/executed! <<<\n")
-
 
 class LLVMIRGenerator(ast.NodeVisitor): # Inherit from ast.NodeVisitor
     """Generate LLVM IR from Python AST."""

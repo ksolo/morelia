@@ -18,7 +18,6 @@ def cli():
 @click.option('--output', '-o', type=click.Path(dir_okay=False),
               help='Output file path (default: input file with .ll extension)')
 def compile_command(input_file: str, output: Optional[str] = None):
-    print("[DEBUG CLI] compile_command entered.")
     """Compiles a Python file to LLVM IR code."""
     input_path = Path(input_file)
     
