@@ -29,22 +29,14 @@ docker run -v $(pwd):/app morelia compile your_program.py
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/morelia.git
+git clone https://github.com/ksolo/morelia.git
 cd morelia
 ```
 
 2. Install dependencies using uv:
 ```bash
-# Initialize uv environment
-uv init
+uv sync
 
-# Install dependencies
-uv pip install -e .
-```
-
-3. Verify installation:
-```bash
-morelia --version
 ```
 
 ## Usage
@@ -53,35 +45,10 @@ morelia --version
 
 ```bash
 # Compile a Python file
-morelia compile your_program.py
+uv run python -m morelia.cli compile your_program.py
 
 # Specify output file
-morelia compile your_program.py --output your_program.out
-
-# Enable optimizations
-morelia compile your_program.py --optimize 3
-
-# Enable debug mode
-morelia compile your_program.py --debug
-```
-
-### Example
-
-Here's a simple example of a Python program that can be compiled:
-
-```python
-# example.py
-def add(a: int, b: int) -> int:
-    return a + b
-
-result = add(42, 24)
-print(result)
-```
-
-To compile this example:
-
-```bash
-morelia compile example.py
+uv run python -m morelia.cli compile your_program.py --output your_program.out
 ```
 
 ## Development
@@ -94,21 +61,16 @@ morelia compile example.py
 apt-get update && apt-get install -y clang llvm lld libclang-dev
 
 # Install Python dependencies
-uv pip install -e .
+uv sync
 ```
 
 2. Run tests:
 ```bash
 # Run all tests
-pytest tests/
+uv run pytest tests/
 
 # Run specific test
-pytest tests/test_compiler.py::test_sample_compilation
-```
-
-3. Run with debug output:
-```bash
-morelia compile example.py --debug
+uv run pytest tests/test_compiler.py::test_sample_compilation
 ```
 
 ### Code Style and Formatting
